@@ -47,5 +47,3 @@ The solver uses the **stream function-vorticity (ψ-ω) formulation** of the Nav
   - Re = 400 (t = 44.16)
   - Re = 1000 (t = 95.47)
   - Re = 3200 (t = 400.00)
-
-## Requirements
