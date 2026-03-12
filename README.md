@@ -19,7 +19,7 @@ The simulation tracks how a fluid moves inside a square cavity when the top "lid
 
 ---
 
-## 📊 Results & Validation
+## Results & Validation
 The following plots show the steady-state streamlines and velocity profiles across various Reynolds numbers. As $Re$ increases, we observe the center of the primary vortex shifting and the velocity gradients becoming steeper.
 
 ### 1. Reynolds Number = 100 (Laminar/Viscous Dominated)
@@ -41,7 +41,7 @@ At $Re=3200$, the flow becomes highly inertial.
 
 ---
 
-## 🛠 Numerical Implementation Detail
+## Numerical Implementation Detail
 The core of the solver relies on the relationship between vorticity ($\omega$) and the stream function ($\psi$):
 
 1.  **Vorticity Transport:**
@@ -56,7 +56,7 @@ The core of the solver relies on the relationship between vorticity ($\omega$) a
 
 ---
 
-## 🚀 How to Run
+## How to Run
 1.  Ensure you have `numpy` and `matplotlib` installed.
 2.  Clone the repo: `git clone https://github.com/your-username/lid-driven-cavity-solver.git`
 3.  Run the script: `python cavity_solver.py`
@@ -64,7 +64,7 @@ The core of the solver relies on the relationship between vorticity ($\omega$) a
 
 ---
 
-## 👤 Author
+## Author
 **[Your Name]**
 *   **LinkedIn:** [linkedin.com/in/ak587](https://linkedin.com/in/ak587)
 *   **Email:** [ak587mishra@gmail.com]
