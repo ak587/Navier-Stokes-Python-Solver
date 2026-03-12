@@ -56,14 +56,6 @@ The core of the solver relies on the relationship between vorticity ($\omega$) a
 
 ---
 
-## How to Run
-1.  Ensure you have `numpy` and `matplotlib` installed.
-2.  Clone the repo: `git clone https://github.com/your-username/lid-driven-cavity-solver.git`
-3.  Run the script: `python cavity_solver.py`
-4.  The solver will automatically export the validation plots as `.png` files.
-
----
-
 ## Author
 **[Akash Mishra]**
 *   **LinkedIn:** [linkedin.com/in/ak587](https://linkedin.com/in/ak587)
