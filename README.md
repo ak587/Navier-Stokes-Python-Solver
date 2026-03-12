@@ -1,77 +1,76 @@
-# 2D Lid-Driven Cavity Flow Solver (CFD)
-[![Language](https://img.shields.io/badge/Language-Python-blue.svg)](https://www.python.org/)
-[![Library](https://img.shields.io/badge/Library-NumPy-orange.svg)](https://numpy.org/)
-[![Library](https://img.shields.io/badge/Library-Matplotlib-green.svg)](https://matplotlib.org/)
+This is an excellent project to showcase on GitHub. It demonstrates your ability to bridge mathematical theory, numerical methods, and physical simulation.
 
-## 📌 Project Overview
-This project implements a numerical solver for the **2D Lid-Driven Cavity Flow**, a classic benchmark problem in Computational Fluid Dynamics (CFD). The solver simulates the behavior of an incompressible fluid inside a square cavity where the top wall moves at a constant velocity, creating a primary vortex and smaller secondary eddies.
-
-The simulation solves the **Navier-Stokes equations** using the **Vorticity-Stream Function ($\omega-\psi$) formulation**.
-
-### Key Features
-*   **Numerical Schemes:** 1st-order Upwind scheme for convective terms (stability) and 2nd-order Central Difference for diffusive terms.
-*   **Iterative Solver:** Jacobi Iteration method for solving the Poisson equation for the stream function.
-*   **Stability:** Adaptive time-stepping based on the **CFL (Courant–Friedrichs–Lewy) condition**.
-*   **Validation:** Results are validated against the landmark study by **Ghia et al. (1982)**.
-*   **Performance:** Capable of simulating high Reynolds numbers (up to $Re=3200$) on a $129 \times 129$ grid.
+To impress a recruiter, you shouldn't just show the plots—you should **analyze** them. Here is a professionally formatted README template tailored for your specific results.
 
 ---
 
-## 🧪 Mathematical Formulation
-The governing equations for incompressible flow in the $\omega-\psi$ form are:
+# 2D Lid-Driven Cavity Flow Solver
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![NumPy](https://img.shields.io/badge/Library-NumPy-orange.svg)](https://numpy.org/)
+[![Matplotlib](https://img.shields.io/badge/Library-Matplotlib-green.svg)](https://matplotlib.org/)
 
-1.  **Vorticity Transport Equation:**
-    $$\frac{\partial \omega}{\partial t} + u \frac{\partial \omega}{\partial x} + v \frac{\partial \omega}{\partial y} = \frac{1}{Re} \left( \frac{\partial^2 \omega}{\partial x^2} + \frac{\partial^2 \omega}{\partial y^2} \right)$$
-2.  **Stream Function (Poisson Equation):**
-    $$\frac{\partial^2 \psi}{\partial x^2} + \frac{\partial^2 \psi}{\partial y^2} = -\omega$$
-3.  **Velocity Definitions:**
-    $$u = \frac{\partial \psi}{\partial y}, \quad v = -\frac{\partial \psi}{\partial x}$$
+## 📌 Project Overview
+This repository contains a Python-based Computational Fluid Dynamics (CFD) solver for the **2D Lid-Driven Cavity** problem. This is a standard benchmark used to validate numerical methods for the incompressible Navier-Stokes equations. 
+
+The simulation tracks how a fluid moves inside a square cavity when the top "lid" moves at a constant velocity, creating a primary vortex and secondary eddies at higher Reynolds numbers ($Re$).
+
+### Technical Highlights
+*   **Formulation:** Vorticity-Stream Function ($\omega-\psi$) approach.
+*   **Numerical Schemes:** 
+    *   **Convective Terms:** 1st-order Upwind scheme (for stability).
+    *   **Diffusive Terms:** 2nd-order Central Difference.
+    *   **Poisson Equation:** Jacobi Iteration method.
+*   **Stability:** Implements **Adaptive Time-Stepping** based on the **CFL condition**, ensuring the simulation remains stable as $Re$ changes.
+*   **Validation:** Direct comparison against the benchmark data from **Ghia et al. (1982)**.
 
 ---
 
 ## 📊 Results & Validation
-The solver computes the steady-state velocity profiles and compares them directly with experimental benchmark data.
+The following plots show the steady-state streamlines and velocity profiles across various Reynolds numbers. As $Re$ increases, we observe the center of the primary vortex shifting and the velocity gradients becoming steeper.
 
-### Reynolds Number: 1000
-*(Insert your generated image here. Example path: `assets/results_re1000.png`)*
-![Lid Driven Cavity Re 1000](https://via.placeholder.com/800x300.png?text=Placeholder:+Upload+your+Lid_Driven_Cavity_Re_1000.png+here)
+### 1. Reynolds Number = 100 (Laminar/Viscous Dominated)
+At $Re=100$, the flow is dominated by viscosity. The solver shows near-perfect agreement with Ghia's results.
+![Re 100](Lid_Driven_Cavity_Re_100_t_8.40.png)
 
-**Observations:**
-*   **Streamlines:** The primary vortex shifts toward the center as $Re$ increases.
-*   **U-Velocity Profile:** The horizontal velocity across the vertical centerline matches the Ghia et al. data points with high accuracy.
-*   **V-Velocity Profile:** The vertical velocity across the horizontal centerline captures the peak magnitudes correctly.
+### 2. Reynolds Number = 400
+As inertia increases, the primary vortex begins to shift toward the geometric center of the cavity.
+![Re 400](Lid_Driven_Cavity_Re_400_t_44.16.png)
+
+### 3. Reynolds Number = 1000
+The flow becomes more complex. The U and V velocity profiles remain highly accurate, effectively capturing the sharpening boundary layers.
+![Re 1000](Lid_Driven_Cavity_Re_1000_t_95.47.png)
+
+### 4. Reynolds Number = 3200 (High Inertia)
+At $Re=3200$, the flow becomes highly inertial. 
+![Re 3200](Lid_Driven_Cavity_Re_3200_t_400.00.png)
+**Numerical Observation:** You will notice a slight deviation from the Ghia data at the peaks. This is a known effect of the **1st-order Upwind scheme**, which introduces "numerical diffusion." To improve accuracy at this high $Re$, a higher-order convective scheme (like QUICK or 2nd-order Upwind) or a finer grid mesh would be required.
 
 ---
 
-## 💻 Implementation Details
-The code is written in Python, prioritizing readability and scientific accuracy:
-*   **`poisson_solver_for_psi`**: Solves the elliptic Poisson equation using Jacobi iteration with a convergence tolerance of $10^{-3}$.
-*   **`explicit_solver_for_omega`**: Updates the vorticity field using an explicit time-marching scheme.
-*   **Adaptive Time-Stepping**: 
+## 🛠 Numerical Implementation Detail
+The core of the solver relies on the relationship between vorticity ($\omega$) and the stream function ($\psi$):
+
+1.  **Vorticity Transport:**
+    $$\frac{\partial \omega}{\partial t} + u \frac{\partial \omega}{\partial x} + v \frac{\partial \omega}{\partial y} = \frac{1}{Re} \nabla^2 \omega$$
+2.  **Poisson Equation for Stream Function:**
+    $$\nabla^2 \psi = -\omega$$
+3.  **Adaptive Time-Step (CFL):**
+    The time-step $dt$ is calculated dynamically to satisfy stability:
     ```python
-    convective_limit = 1.0 / ((np.max(np.abs(u))/dx) + (np.max(np.abs(v))/dy) + 1e-12)
-    diffusive_limit  = Re * dx**2 / 4
     dt = 0.2 * min(convective_limit, diffusive_limit)
     ```
 
 ---
 
 ## 🚀 How to Run
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/yourusername/lid-driven-cavity-cfd.git
-    ```
-2.  **Install dependencies:**
-    ```bash
-    pip install numpy matplotlib
-    ```
-3.  **Execute the solver:**
-    ```bash
-    python solver.py
-    ```
+1.  Ensure you have `numpy` and `matplotlib` installed.
+2.  Clone the repo: `git clone https://github.com/your-username/lid-driven-cavity-solver.git`
+3.  Run the script: `python cavity_solver.py`
+4.  The solver will automatically export the validation plots as `.png` files.
 
 ---
 
-## 🎓 Author
-**[Akash Mishra]**
-*   LinkedIn: [linkedin.com/in/ak587](https://linkedin.com/in/ak587)
+## 👤 Author
+**[Your Name]**
+*   **LinkedIn:** [linkedin.com/in/ak587](https://linkedin.com/in/ak587)
+*   **Email:** [ak587mishra@gmail.com]
