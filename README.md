@@ -1,15 +1,9 @@
-This is an excellent project to showcase on GitHub. It demonstrates your ability to bridge mathematical theory, numerical methods, and physical simulation.
-
-To impress a recruiter, you shouldn't just show the plots—you should **analyze** them. Here is a professionally formatted README template tailored for your specific results.
-
----
-
 # 2D Lid-Driven Cavity Flow Solver
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![NumPy](https://img.shields.io/badge/Library-NumPy-orange.svg)](https://numpy.org/)
 [![Matplotlib](https://img.shields.io/badge/Library-Matplotlib-green.svg)](https://matplotlib.org/)
 
-## 📌 Project Overview
+## Project Overview
 This repository contains a Python-based Computational Fluid Dynamics (CFD) solver for the **2D Lid-Driven Cavity** problem. This is a standard benchmark used to validate numerical methods for the incompressible Navier-Stokes equations. 
 
 The simulation tracks how a fluid moves inside a square cavity when the top "lid" moves at a constant velocity, creating a primary vortex and secondary eddies at higher Reynolds numbers ($Re$).
