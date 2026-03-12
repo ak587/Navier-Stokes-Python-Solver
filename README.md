@@ -57,6 +57,6 @@ The core of the solver relies on the relationship between vorticity ($\omega$) a
 ---
 
 ## Author
-**[Akash Mishra]**
+**Akash Mishra**
 *   **LinkedIn:** [linkedin.com/in/ak587](https://linkedin.com/in/ak587)
 *   **Email:** [ak587mishra@gmail.com]
