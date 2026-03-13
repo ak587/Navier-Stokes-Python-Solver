@@ -53,10 +53,3 @@ The core of the solver relies on the relationship between vorticity ($\omega$) a
     ```python
     dt = 0.2 * min(convective_limit, diffusive_limit)
     ```
-
----
-
-## Author
-**Akash Mishra**
-*   **LinkedIn:** [linkedin.com/in/ak587](https://linkedin.com/in/ak587)
-*   **Email:** ak587mishra@gmail.com
