@@ -53,5 +53,6 @@ The solver operates headlessly and dynamically computes thousands of grid iterat
 
 ```bash
 python Lid-Driven_Cavity.py
+```
 
 * Note: The solver evaluates local CFL constraints at every time step, autonomously generating performance logs (Time, Iterations, Convergence Error) and producing automated comparative visualizations upon hitting steady-state logic.
