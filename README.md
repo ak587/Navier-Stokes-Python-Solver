@@ -5,14 +5,14 @@
 [![Matplotlib](https://img.shields.io/badge/Visualization-Matplotlib-green.svg)](https://matplotlib.org/)
 [![Math](https://img.shields.io/badge/Domain-Numerical%20Methods-red.svg)]()
 
-## 🚀 The Engineering Challenge
+## The Engineering Challenge
 Running commercial CFD tools (like Ansys Fluent) is industry standard, but understanding the underlying numerical mathematics—specifically solver stability, truncation errors, and discretization limits—is what separates software operators from true Simulation Engineers.
 
 This repository contains a **custom-built 2D incompressible Navier-Stokes solver** developed from scratch in Python. It solves the non-linear Vorticity-Stream Function ($\omega-\psi$) formulation. The primary objective of this project is to explicitly control **algorithmic stability** and systematically quantify **numerical diffusion** across varying inertial regimes ($Re = 100$ to $3200$).
 
 ---
 
-## 🏗️ Core Numerical Architecture
+## Core Numerical Architecture
 
 ### 1. Mathematical Formulation & Discretization
 The solver translates partial differential equations into a strictly controlled algebraic matrix:
@@ -28,11 +28,9 @@ Hardcoding a time-step ($dt$) guarantees failure as the Reynolds number changes.
 
 ---
 
-## 📊 Rigorous Benchmarking & Physics Validation
+## Rigorous Benchmarking & Physics Validation
 
 The solver's accuracy is mathematically verified against the industry-standard benchmark dataset from **Ghia et al. (1982)**. 
-
-*(Add your high-res image links below)*
 
 ### 1. Viscous-Dominated Regime ($Re = 100$)
 Near-perfect alignment with Ghia's benchmark. The solver flawlessly captures the primary vortex topology and exact velocity boundary layers.
@@ -48,7 +46,7 @@ At highly inertial states, a slight deviation from the benchmark peaks is observ
 
 ---
 
-## ⚙️ Execution & Performance
+## Execution & Performance
 The solver operates headlessly and dynamically computes thousands of grid iterations until steady-state convergence is achieved. 
 
 ```bash
